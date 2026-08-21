@@ -8,6 +8,18 @@ function validarChamado(titulo: string): boolean {
 
     const tituloTratado = titulo.trim();
 
+    if (tituloTratado.length < TITULO_MIN_CARACTERES) {
+        throw new Error(
+            `O título do chamado deve possuir no mínimo ${TITULO_MIN_CARACTERES} caracteres.`
+        );
+    }
+
+    if (tituloTratado.length > TITULO_MAX_CARACTERES) {
+        throw new Error(
+            `O título do chamado deve possuir no máximo ${TITULO_MAX_CARACTERES} caracteres.`
+        );
+    }
+
     return true;
 }
 
